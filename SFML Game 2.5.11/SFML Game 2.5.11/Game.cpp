@@ -39,7 +39,7 @@ Game::Game() :
 		m_boardSwitchButtons[i].setOutlineColor(sf::Color::Red);
 
 		m_boardSwitchTexts[i].setFont(m_font);
-		m_boardSwitchTexts[i].setCharacterSize(24u);
+		m_boardSwitchTexts[i].setCharacterSize(40u);
 		m_boardSwitchTexts[i].setString("Board\n   " + std::to_string(i + 1));
 		m_boardSwitchTexts[i].setPosition(m_boardSwitchButtons[i].getPosition().x + 20.0f,
 		m_boardSwitchButtons[i].getPosition().y + m_boardSwitchButtons[i].getGlobalBounds().height / 3.0f);
