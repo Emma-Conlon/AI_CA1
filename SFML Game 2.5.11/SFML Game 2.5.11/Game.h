@@ -10,6 +10,7 @@
 /// Don't forget the endif at the bottom
 /// </summary>
 #include <SFML/Graphics.hpp>
+#include"Board.h"
 
 class Game
 {
@@ -27,10 +28,10 @@ private:
 	void processKeys(sf::Event t_event);
 	void update(sf::Time t_deltaTime);
 	void render();
-	
+	std::array<Board*, 4> m_boards;
 	void setupFontAndText();
 	void setupSprite();
-
+	Board* m_bored;
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_welcomeMessage; // text used for message on screen
@@ -38,6 +39,11 @@ private:
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
 
+	sf::Font m_font;
+	sf::Color m_selectedBoardColor{ 255, 0, 0 };
+	std::array<sf::RectangleShape, 4> m_boardSwitchButtons;
+	std::array<sf::Text, 4> m_boardSwitchTexts;
+	sf::RectangleShape* m_currentBoardButton;
 };
 
 #endif // !GAME_HPP

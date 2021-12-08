@@ -22,6 +22,32 @@ Game::Game() :
 {
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
+	m_font.loadFromFile("ASSETS\\FONTS\\ariblk.ttf");
+	int boardIndex{};
+	for (auto& board : m_boards)
+	{
+		board = new Board(boardIndex);
+		++boardIndex;
+	}
+
+	for (size_t i = 0; i < m_boardSwitchButtons.size(); i++)
+	{
+		m_boardSwitchButtons[i].setFillColor(sf::Color::Black);
+		m_boardSwitchButtons[i].setSize(sf::Vector2f{ 400.0f, 350.0f });
+		m_boardSwitchButtons[i].setPosition(1400.0f, 350.0f * i);
+		m_boardSwitchButtons[i].setOutlineThickness(1.5f);
+		m_boardSwitchButtons[i].setOutlineColor(sf::Color::Red);
+
+		m_boardSwitchTexts[i].setFont(m_font);
+		m_boardSwitchTexts[i].setCharacterSize(24u);
+		m_boardSwitchTexts[i].setString("Board\n   " + std::to_string(i + 1));
+		m_boardSwitchTexts[i].setPosition(m_boardSwitchButtons[i].getPosition().x + 20.0f,
+		m_boardSwitchButtons[i].getPosition().y + m_boardSwitchButtons[i].getGlobalBounds().height / 3.0f);
+		m_boardSwitchTexts[i].setFillColor(sf::Color::White);
+	}
+	m_bored = m_boards[0];
+	m_currentBoardButton = &m_boardSwitchButtons[0];
+	m_currentBoardButton->setFillColor(m_selectedBoardColor);
 }
 
 /// <summary>
@@ -30,6 +56,10 @@ Game::Game() :
 /// </summary>
 Game::~Game()
 {
+	for (auto& board : m_boards)
+	{
+		delete board;
+	}
 }
 
 
@@ -103,6 +133,23 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+
+
+	//m_currentBoard->placement(&m_window, &m_player);
+
+	for (int i = 0; i < m_boardSwitchButtons.size(); i++)
+	{
+		if (m_boardSwitchButtons[i].getGlobalBounds().contains(m_window.mapPixelToCoords(sf::Mouse::getPosition(m_window))))
+		{
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+			{
+				m_currentBoardButton->setFillColor(sf::Color::Black);
+				m_currentBoardButton = &m_boardSwitchButtons[i];
+				m_currentBoardButton->setFillColor(m_selectedBoardColor);
+				m_bored = m_boards.at(i);
+			}
+		}
+	}
 }
 
 /// <summary>
@@ -110,9 +157,15 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	m_window.clear(sf::Color::White);
+	m_window.clear(sf::Color::Blue);
+	
+	m_bored->draw(&m_window);
 	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+	for (size_t i = 0; i < m_boardSwitchButtons.size(); i++)
+	{
+		m_window.draw(m_boardSwitchButtons[i]);
+		m_window.draw(m_boardSwitchTexts[i]);
+	}
 	m_window.display();
 }
 
@@ -126,9 +179,9 @@ void Game::setupFontAndText()
 		std::cout << "problem loading arial black font" << std::endl;
 	}
 	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("SFML Game");
+	m_welcomeMessage.setString("Players Turn");
 	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-	m_welcomeMessage.setPosition(40.0f, 40.0f);
+	m_welcomeMessage.setPosition(450.0f, 1450.0f);
 	m_welcomeMessage.setCharacterSize(80U);
 	m_welcomeMessage.setOutlineColor(sf::Color::Red);
 	m_welcomeMessage.setFillColor(sf::Color::Black);
