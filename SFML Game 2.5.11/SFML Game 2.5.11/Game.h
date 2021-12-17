@@ -9,9 +9,10 @@
 /// same as #pragma once
 /// Don't forget the endif at the bottom
 /// </summary>
+
 #include <SFML/Graphics.hpp>
 #include"Board.h"
-
+#include "global.h"
 class Game
 {
 public:
@@ -21,7 +22,7 @@ public:
 	/// main method for game
 	/// </summary>
 	void run();
-
+	
 private:
 
 	void processEvents();
@@ -44,6 +45,8 @@ private:
 	std::array<sf::RectangleShape, 4> m_boardSwitchButtons;
 	std::array<sf::Text, 4> m_boardSwitchTexts;
 	sf::RectangleShape* m_currentBoardButton;
+
+	GameState current = playerTurn;
 };
 
 #endif // !GAME_HPP
