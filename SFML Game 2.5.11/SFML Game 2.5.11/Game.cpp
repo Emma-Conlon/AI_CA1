@@ -19,7 +19,7 @@
 Game::Game() :
 	m_window{ sf::VideoMode{ 1800U, 1600U, 32U }, "SFML Game" },
 	m_exitGame{false} //when true game will exit
-{
+{ 
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	m_font.loadFromFile("ASSETS\\FONTS\\ariblk.ttf");
@@ -135,7 +135,7 @@ void Game::update(sf::Time t_deltaTime)
 	}
 
 
-	//m_currentBoard->placement(&m_window, &m_player);
+	
 
 	for (int i = 0; i < m_boardSwitchButtons.size(); i++)
 	{
@@ -149,6 +149,16 @@ void Game::update(sf::Time t_deltaTime)
 				m_bored = m_boards.at(i);
 			}
 		}
+	}
+	if (current == playerTurn) {
+		m_welcomeMessage.setString("Players Turn");
+		m_bored->placement(&m_window,current);
+		
+	}
+	if (current == AiTurn)
+	{
+		m_welcomeMessage.setString("AI Turn");
+		//ai stuff
 	}
 }
 
