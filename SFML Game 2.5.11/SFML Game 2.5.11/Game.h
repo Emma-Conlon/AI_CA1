@@ -45,7 +45,11 @@ private:
 	std::array<sf::RectangleShape, 4> m_boardSwitchButtons;
 	std::array<sf::Text, 4> m_boardSwitchTexts;
 	sf::RectangleShape* m_currentBoardButton;
+<<<<<<< HEAD
 	void victoryCheck();
+=======
+
+>>>>>>> fcf3fd67b24724fd0acd4039bfd8ec3ea8d6b721
 	GameState current = playerTurn;
 };
 

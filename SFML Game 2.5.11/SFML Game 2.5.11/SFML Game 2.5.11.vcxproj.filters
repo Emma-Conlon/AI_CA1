@@ -44,9 +44,12 @@
     <ClInclude Include="global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="AI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+>>>>>>> fcf3fd67b24724fd0acd4039bfd8ec3ea8d6b721
   </ItemGroup>
   <ItemGroup>
     <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
