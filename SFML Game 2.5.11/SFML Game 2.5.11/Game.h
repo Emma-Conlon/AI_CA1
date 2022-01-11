@@ -39,13 +39,13 @@ private:
 	sf::Texture m_logoTexture; // texture used for sfml logo
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
-
+	
 	sf::Font m_font;
 	sf::Color m_selectedBoardColor{ 255, 0, 0 };
 	std::array<sf::RectangleShape, 4> m_boardSwitchButtons;
 	std::array<sf::Text, 4> m_boardSwitchTexts;
 	sf::RectangleShape* m_currentBoardButton;
-
+	void victoryCheck();
 	GameState current = playerTurn;
 };
 
