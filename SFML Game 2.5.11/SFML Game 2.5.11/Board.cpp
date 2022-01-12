@@ -50,11 +50,6 @@ void Board::placement(sf::RenderWindow* window, GameState& T_state)
 	}
 	
 
-	if (T_state == GameState::AiTurn)
-	{
-		
-	}
-
 }
 
 void Board::draw(sf::RenderWindow* window)

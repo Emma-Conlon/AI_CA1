@@ -11,7 +11,7 @@
 /// </summary>
 
 #include <SFML/Graphics.hpp>
-#include"Board.h"
+#include"GameBoard.h"
 #include "global.h"
 class Game
 {
@@ -24,15 +24,15 @@ public:
 	void run();
 	
 private:
-
+	GameBoard* m_gameboard = new GameBoard();
 	void processEvents();
 	void processKeys(sf::Event t_event);
 	void update(sf::Time t_deltaTime);
 	void render();
-	std::array<Board*, 4> m_boards;
+	
 	void setupFontAndText();
 	void setupSprite();
-	Board* m_bored;
+	
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_welcomeMessage; // text used for message on screen
@@ -41,11 +41,8 @@ private:
 	bool m_exitGame; // control exiting game
 	
 	sf::Font m_font;
-	sf::Color m_selectedBoardColor{ 255, 0, 0 };
-	std::array<sf::RectangleShape, 4> m_boardSwitchButtons;
-	std::array<sf::Text, 4> m_boardSwitchTexts;
-	sf::RectangleShape* m_currentBoardButton;
-	void victoryCheck();
+	
+	
 	GameState current = playerTurn;
 };
 
