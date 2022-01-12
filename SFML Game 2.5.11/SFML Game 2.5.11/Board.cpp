@@ -30,7 +30,7 @@ void Board::update(sf::Time dt, sf::RenderWindow* window)
 //
 void Board::placement(sf::RenderWindow* window, GameState& T_state)
 {
-<<<<<<< HEAD
+
 	if (T_state == GameState::playerTurn)
 	{
 		for (size_t i = 0; i < 4; i++)
@@ -44,29 +44,17 @@ void Board::placement(sf::RenderWindow* window, GameState& T_state)
 						m_pieces.at(i).at(j).setFillColor(sf::Color::Yellow);
 						//T_state = GameState::AiTurn;
 					}
-=======
-	for (size_t i = 0; i < 4; i++)
-	{
-		for (size_t j = 0; j < 4; j++)
-		{
-			if (m_boardTiles.at(i).at(j).getGlobalBounds().contains(window->mapPixelToCoords(sf::Mouse::getPosition(*window))))
-			{
-				if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-				{
-					m_pieces.at(i).at(j).setFillColor(sf::Color::Yellow);
-					T_state = GameState::AiTurn;
->>>>>>> fcf3fd67b24724fd0acd4039bfd8ec3ea8d6b721
 				}
 			}
 		}
 	}
-<<<<<<< HEAD
+	
+
 	if (T_state == GameState::AiTurn)
 	{
 		
 	}
-=======
->>>>>>> fcf3fd67b24724fd0acd4039bfd8ec3ea8d6b721
+
 }
 
 void Board::draw(sf::RenderWindow* window)

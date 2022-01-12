@@ -10,7 +10,6 @@ class Board
 private:
 	float m_tileWidth{ 350.0f };
 	std::array<std::array<sf::RectangleShape, 4>, 4> m_boardTiles;
-	std::array<std::array<sf::CircleShape,4>, 4> m_pieces;
 	int m_index;
 
 public:
@@ -24,11 +23,8 @@ public:
 	bool victoryCheckPlayer();
 
 	int index() { return m_index; }
-<<<<<<< HEAD
 	bool victoryCheckAI();
-=======
-	
->>>>>>> fcf3fd67b24724fd0acd4039bfd8ec3ea8d6b721
+
 };
 
 #endif // !BOARD_H

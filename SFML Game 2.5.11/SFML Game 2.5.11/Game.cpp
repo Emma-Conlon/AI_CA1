@@ -152,26 +152,18 @@ void Game::update(sf::Time t_deltaTime)
 			}
 		}
 	}
-<<<<<<< HEAD
 	
 	if (current == playerTurn) {
 		m_welcomeMessage.setString("Players Turn");
 		m_bored->placement(&m_window,current);
 		victoryCheck();
-
-=======
-	if (current == playerTurn) {
-		m_welcomeMessage.setString("Players Turn");
-		m_bored->placement(&m_window,current);
-		
->>>>>>> fcf3fd67b24724fd0acd4039bfd8ec3ea8d6b721
 	}
 	if (current == AiTurn)
 	{
 		m_welcomeMessage.setString("AI Turn");
 		//ai stuff
 	}
-<<<<<<< HEAD
+
 	
 	if (current == GameEndedWinPlayer)
 	{
@@ -181,8 +173,7 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_welcomeMessage.setString("AI won");
 	}
-=======
->>>>>>> fcf3fd67b24724fd0acd4039bfd8ec3ea8d6b721
+
 }
 
 /// <summary>
