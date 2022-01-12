@@ -49,7 +49,7 @@ void GameBoard::update(sf::RenderWindow &m_window)
 	}
 
 }
-void GameBoard::victoryCheck(GameState& current)
+int GameBoard::victoryCheck(GameState& current)
 {
 	std::array<int, 16> pos1;
 	std::array<int, 16> pos2;
@@ -203,4 +203,17 @@ void GameBoard::victoryCheck(GameState& current)
 			current = GameEndedWinAi;
 		}
 	}
+	if (current == GameEndedWinAi)
+	{
+		ended = true;
+		return 1;
+
+	}
+	if (current == GameEndedWinPlayer)
+	{
+		ended = true;
+		return 2;
+	}
+	
+	return 0;
 }

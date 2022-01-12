@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include"GameBoard.h"
 #include "global.h"
+#include "AI.h"
 class Game
 {
 public:
@@ -24,6 +25,7 @@ public:
 	void run();
 	
 private:
+	AI ai;
 	GameBoard* m_gameboard = new GameBoard();
 	void processEvents();
 	void processKeys(sf::Event t_event);

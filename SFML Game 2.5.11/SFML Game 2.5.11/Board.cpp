@@ -41,8 +41,11 @@ void Board::placement(sf::RenderWindow* window, GameState& T_state)
 				{
 					if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 					{
-						m_pieces.at(i).at(j).setFillColor(sf::Color::Yellow);
-						//T_state = GameState::AiTurn;
+						if (getPiece(i, j).getFillColor() == sf::Color::White) {
+							m_pieces.at(i).at(j).setFillColor(sf::Color::Yellow);
+
+							T_state = AiTurn;
+						}
 					}
 				}
 			}
@@ -67,6 +70,11 @@ void Board::draw(sf::RenderWindow* window)
 sf::CircleShape Board::getPiece(int x , int y)
 {
 	return m_pieces.at(x).at(y);
+}
+
+void Board::setPiece(int x, int y, sf::Color player)
+{
+	m_pieces.at(x).at(y).setFillColor(player);
 }
 
 bool Board::victoryCheckPlayer()
@@ -179,68 +187,68 @@ bool Board::victoryCheckAI()
 	{
 		win = true;
 	}
-	if (pos[4] == 2
+	else if (pos[4] == 2
 		&& pos[5] == 2
 		&& pos[6] == 2
 		&& pos[7] == 2)
 	{
 		win = true;
 	}
-	if (pos[8] == 2
+	else if (pos[8] == 2
 		&& pos[9] == 2
 		&& pos[10] == 2
 		&& pos[11] == 2)
 	{
 		win = true;
 	}
-	if (pos[12] == 2
+	else if (pos[12] == 2
 		&& pos[13] == 2
 		&& pos[14] == 2
 		&& pos[15] == 2)
 	{
 		win = true;
 	}
-	if (pos[0] == 2
+	else if (pos[0] == 2
 		&& pos[4] == 2
 		&& pos[8] == 2
 		&& pos[12] ==2)
 	{
 		win = true;
 	}
-	if (pos[1] == 2
+	else if (pos[1] == 2
 		&& pos[5] == 2
 		&& pos[9] == 2
 		&& pos[13] == 2)
 	{
 		win = true;
 	}
-	if (pos[2] == 2
+	else if (pos[2] == 2
 		&& pos[6] == 2
 		&& pos[10] == 2
 		&& pos[14] == 2)
 	{
 		win = true;
 	}
-	if (pos[3] == 2
+	else if (pos[3] == 2
 		&& pos[7] == 2
 		&& pos[11] == 2
 		&& pos[15] == 2)
 	{
 		win = true;
 	}
-	if (pos[0] == 2
+	else if (pos[0] == 2
 		&& pos[5] == 2
 		&& pos[10] == 2
 		&& pos[15] == 2)
 	{
 		win = true;
 	}
-	if (pos[3] == 2
+	else if (pos[3] == 2
 		&& pos[6] == 2
 		&& pos[9] == 2
 		&& pos[12] == 2)
 	{
 		win = true;
 	}
-	return false;
+	return win;
 }

@@ -1,12 +1,12 @@
 #pragma once
-#include "Board.h";
-#include "Game.h"
+#include "GameBoard.h";
 struct AiMove
 {
 	AiMove() {}
 	AiMove(int Score) : score(Score) {}
 	int x;
 	int y;
+	int z;
 	int score;
 };
 
@@ -14,13 +14,14 @@ struct AiMove
 class AI
 {
 public:
-	void init();
-    void preformMove(Board& board1, Board& board2, Board& board3, Board& board4);
+	void init(GameState copy);
+    void preformMove(GameBoard &m_gameboard);
 private:
 	
-	AiMove getBestMove(Board& board1, Board& board2, Board& board3, Board& board4, GameState copy, int depth = 0);
+	AiMove getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove move);
 
-	
-
+	GameState state;
+	int ai = 1;
+	int player = 2;
 };
 

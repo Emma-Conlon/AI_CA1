@@ -113,16 +113,31 @@ void Game::update(sf::Time t_deltaTime)
 	m_gameboard->update(m_window);
 
 	
-	if (current == playerTurn) {
-		m_welcomeMessage.setString("Players Turn");
-		m_gameboard->m_bored->placement(&m_window,current);
-		m_gameboard->victoryCheck(current);
-	}
-	if (current == AiTurn)
-	{
-		m_welcomeMessage.setString("AI Turn");
-		//ai stuff
-	}
+	
+		if (current == playerTurn) {
+			m_welcomeMessage.setString("Players Turn");
+			m_gameboard->m_bored->placement(&m_window, current);
+			m_gameboard->victoryCheck(current);
+
+
+
+
+		}
+
+		if (current == AiTurn)
+		{
+			m_welcomeMessage.setString("AI Turn");
+			ai.init(current);
+			ai.preformMove(*m_gameboard);
+
+
+			
+			if(m_gameboard->victoryCheck(current)==0)
+			{
+				current = playerTurn;
+			}
+
+		}
 
 	
 	if (current == GameEndedWinPlayer)
