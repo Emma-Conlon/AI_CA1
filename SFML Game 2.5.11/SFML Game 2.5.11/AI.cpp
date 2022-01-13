@@ -19,7 +19,7 @@ AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove
     }
     else if (retv == player)
     {
-        return AiMove(depth + 1);
+        return AiMove(depth + 100);
     }
     else if (retv == 4)
     {
@@ -36,7 +36,7 @@ AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove
         newMove.x = t_move.x;
         newMove.y = t_move.y;
         newMove.z = t_move.z;
-        //newMove.score = 12;
+        newMove.score=evaluation(m_gameboard, newMove, copy);
 
         return newMove;
     }
@@ -123,211 +123,376 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
     m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, newMove.y);
     if (newMove.x == newMove.y &&( newMove.x == 0 || newMove.x == 3))//all corners of every board
     {
-        score =6;
+        score +=6;
     }
-    for (int x = 0,int z=x; x < 4; x++)//layers + horizontal
+    for (int x1 = 0,  z1 = 0; x1 < 4; x1++, z1++)//layers + horizontal
     {
-        if (newMove.x == x)
+       
+        if (newMove.x == x1)
         {
             continue;
         }
-        if (m_gameboard.m_boards[z]->getPiece(x, newMove.y).getFillColor() == sf::Color::Yellow)
+
+        if (m_gameboard.m_boards[z1]->getPiece(x1, newMove.y).getFillColor() == sf::Color::Yellow)
         {
-            score += 2;
+            if (copy == playerTurn)
+            {
+                score += 2;
+            }
+            else if (copy == AiTurn)
+            {
+                score -= 2;
+            }
+          
+        }
+        if (m_gameboard.m_boards[z1]->getPiece(x1, newMove.y).getFillColor() == sf::Color::Red)
+        {
+            if (copy == playerTurn)
+            {
+                score -= 2;
+            }
+            else if (copy == AiTurn)
+            {
+                score += 2;
+            }
+        
         }
     }
-    for (int x = 3, int z = x; x >= 0; x--)//layers - horizontal
+    for (int x2 = 3,z2 = 3; x2 >= 0; x2--,z2--)//layers - horizontal
     {
-        if (newMove.x == x)
+        if (newMove.x == x2)
         {
             continue;
         }
-        if (m_gameboard.m_boards[z]->getPiece(x, newMove.y).getFillColor() == sf::Color::Yellow)
+        if (m_gameboard.m_boards[z2]->getPiece(x2, newMove.y).getFillColor() == sf::Color::Yellow)
         {
-            score += 2;
+            if (copy == playerTurn)
+            {
+                score += 2;
+            }
+            else if (copy == AiTurn)
+            {
+                score -= 2;
+            }
+           
+        }
+        if (m_gameboard.m_boards[z2]->getPiece(x2, newMove.y).getFillColor() == sf::Color::Red)
+        {
+            if (copy == playerTurn)
+            {
+                score -= 2;
+            }
+            else if (copy == AiTurn)
+            {
+                score += 2;
+            }
         }
     }
         
-        for (int x = 0; x < 4; x++)//horizontal
+        for (int x3 = 0; x3 < 4; x3++)//horizontal
         {
-            if (newMove.x == x)
+            if (newMove.x == x3)
             {
                 continue;
             }
-             if (m_gameboard.m_boards[newMove.z]->getPiece(x, newMove.y).getFillColor() == sf::Color::Yellow)
+             if (m_gameboard.m_boards[newMove.z]->getPiece(x3, newMove.y).getFillColor() == sf::Color::Yellow)
              {
-                 score += 2;
+               
+
+                 if (copy == playerTurn)
+                 {
+                     score += 2;
+                 }
+                 else if (copy == AiTurn)
+                 {
+                     score -= 2;
+                 }
+             }
+             if (m_gameboard.m_boards[newMove.z]->getPiece(x3, newMove.y).getFillColor() == sf::Color::Red)
+             {
+                 if (copy == playerTurn)
+                 {
+                     score -= 2;
+                 }
+                 else if (copy == AiTurn)
+                 {
+                     score += 2;
+                 }
              }
         }
 
 
-        for (int y = 0,int z=y; y < 4; y++)//layers vertical
+        for (int y4 = 0,z4=0; y4 < 4; y4++,z4++)//layers vertical
         {
-            if (newMove.y == y)
+            if (newMove.y == y4)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[z]->getPiece(newMove.x, y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[z4]->getPiece(newMove.x, y4).getFillColor() == sf::Color::Yellow)
             {
-                score += 2;
+                
+                if (copy == playerTurn)
+                {
+                    score += 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
+            }
+            if (m_gameboard.m_boards[z4]->getPiece(newMove.x, y4).getFillColor() == sf::Color::Red)
+            {
+                
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
             }
         }
 
-        for (int y = 0, int z = y; y >= 0; y--)//layers vertical
+        for (int y5 = 3, z5 = 3; y5 >= 0; y5--,z5--)//layers vertical
         {
-            if (newMove.y == y)
+            if (newMove.y == y5)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[z]->getPiece(newMove.x, y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[z5]->getPiece(newMove.x, y5).getFillColor() == sf::Color::Yellow)
             {
-                score += 2;
+                
+                if (copy == playerTurn)
+                {
+                    score += 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
+            }
+            if (m_gameboard.m_boards[z5]->getPiece(newMove.x, y5).getFillColor() == sf::Color::Red)
+            {
+               
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
             }
         }
 
-        for (int y = 0; y < 4; y++)//vertical
+        for (int y6 = 0; y6 < 4; y6++)//vertical normal
         {
-            if (newMove.y== y)
+            if (newMove.y== y6)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, y6).getFillColor() == sf::Color::Yellow)
             {
-                score += 2;
+                
+                if (copy == playerTurn)
+                {
+                    score += 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
+            }
+            if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, y6).getFillColor() == sf::Color::Red)
+            {
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
             }
         }
 
-        for (int z = 0; z < 4; z++)//layers
+        for (int z6 = 0; z6 < 4; z6++)//layers
         {
-            if (newMove.z == z)
+            if (newMove.z == z6)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[z]->getPiece(newMove.x, newMove.y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[z6]->getPiece(newMove.x, newMove.y).getFillColor() == sf::Color::Yellow)
             {
-                score += 2;
+         
+                if (copy == playerTurn)
+                {
+                    score += 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
+            }
+            if (m_gameboard.m_boards[z6]->getPiece(newMove.x, newMove.y).getFillColor() == sf::Color::Red)
+            {
+               
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
             }
         }
 
          //Layer diagonals 
-        for (int x = 0, int y = 0,int z=0; x < 4; x++,y++,z++)
+        for (int x7 = 0, y7 = 0,z7=0; x7 < 4; x7++,y7++,z7++)
         {
-            if (newMove.x == x)
+            if (newMove.x == x7)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[z]->getPiece(x, y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[z7]->getPiece(x7, y7).getFillColor() == sf::Color::Yellow)
             {
-                score += 2;
+               
+                if (copy == playerTurn)
+                {
+                    score += 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
+            }
+            if (m_gameboard.m_boards[z7]->getPiece(x7, y7).getFillColor() == sf::Color::Red)
+            {
+                
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
             }
           
         }
-        for (int x = 3, int y = 3,int z=3; x >= 0; x--,y--,z--)
+        for (int x8 = 3,y8 = 3, z8=3; x8 >= 0; x8--,y8--,z8--)
         {
-            if (newMove.x == x)
+            if (newMove.x == x8)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[z]->getPiece(x, y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[z8]->getPiece(x8, y8).getFillColor() == sf::Color::Yellow)
             {
-                score += 2;
+                
+                if (copy == playerTurn)
+                {
+                    score += 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
+            }
+            if (m_gameboard.m_boards[z8]->getPiece(x8, y8).getFillColor() == sf::Color::Red)
+            {
+                
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
             }
 
         }
         //normal diagonals 
-        for (int x = 3, int y = x; x >= 0; x--)
+        for (int x9 = 3, y9 = 3; x9 >= 0; x9--,y9--)
         {
-            if (newMove.x == x)
+            if (newMove.x == x9)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[newMove.z]->getPiece(x, y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[newMove.z]->getPiece(x9, y9).getFillColor() == sf::Color::Yellow)
             {
                 score += 2;
+                if (copy == playerTurn)
+                {
+                
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
+            }
+            if (m_gameboard.m_boards[newMove.z]->getPiece(x9, y9).getFillColor() == sf::Color::Red)
+            {
+              
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
             }
 
         }
-        for (int x = 0, int y = x; x < 4; x++)
+        for (int xr = 0, yr = 0; xr < 4; xr++,yr++)
         {
-            if (newMove.x == x)
+            if (newMove.x == xr)
             {
                 continue;
             }
-            if (m_gameboard.m_boards[newMove.z]->getPiece(x, y).getFillColor() == sf::Color::Yellow)
+            if (m_gameboard.m_boards[newMove.z]->getPiece(xr, yr).getFillColor() == sf::Color::Yellow)
             {
-                score += 2;
+                
+                if (copy == playerTurn)
+                {
+                    score += 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score -= 2;
+                }
             }
+            if (m_gameboard.m_boards[newMove.z]->getPiece(xr, yr).getFillColor() == sf::Color::Red)
+            {
+                
+                if (copy == playerTurn)
+                {
+                    score -= 2;
+                }
+                else if (copy == AiTurn)
+                {
+                    score += 2;
+                }
+            }
+          
 
         }
-    //onlys 1 piece ;-;
-    if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, newMove.y).getFillColor() == sf::Color::Yellow)//player-
-    {
-        if (copy == playerTurn)
-        {
-            score = 5;
-        }
-        else if (copy == AiTurn)
-        {
-            score = -5;
-        }
-        
-        //if (newMove.x < 3)//x
-        //{
-        //    if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x + 1, newMove.y).getFillColor() == sf::Color::Yellow)//player-
-        //    {
-        //        if (copy == playerTurn)
-        //        {
-        //            score = 6;
-        //        }
-        //        else if (copy == AiTurn)
-        //        {
-        //            score = -6;
-        //        }
-        //        if (newMove.x < 2)
-        //        {
-        //            if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x + 2, newMove.y).getFillColor() == sf::Color::Yellow)//player-
-        //            {
-        //                if (copy == playerTurn)
-        //                {
-        //                    score = 7;
-        //                }
-        //                else if (copy == AiTurn)
-        //                {
-        //                    score = -7;
-        //                }
-        //                if (newMove.x < 1)
-        //                {
-        //                    if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x + 3, newMove.y).getFillColor() == sf::Color::Yellow)//player-
-        //                    {
-        //                        if (copy == playerTurn)
-        //                        {
-        //                            score = 8;
-        //                        }
-        //                        else if (copy == AiTurn)
-        //                        {
-        //                            score = -8;
-        //                        }
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
 
-        //}
-       
-    }
-    if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, newMove.y).getFillColor() == sf::Color::Red)//AI+
-    {
-        if (copy == playerTurn)
+        if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, newMove.y).getFillColor() == sf::Color::White)
         {
-            score=-5;
+
+            if (copy == playerTurn)
+            {
+                score -= 0;
+            }
+            else if (copy == AiTurn)
+            {
+                score += 0;
+            }
         }
-        else if(copy == AiTurn) 
-        {
-            score =5;
-        }
-    }
-   
     //evalgroup(m_gameboard, score, copy);
     if (copy == playerTurn)
     {
@@ -336,15 +501,4 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
     return score;
 }
 
-int AI::evalgroup(GameBoard& m_gameboard, int score, GameState copy)
-{
-    /*if (copy == playerTurn)
-    {
-        score = +30;
-    }
-    else if (copy == AiTurn)
-    {
-        score -= 15;
-    }*/
-    return 0;
-}
+

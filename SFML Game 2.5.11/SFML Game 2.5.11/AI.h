@@ -20,7 +20,6 @@ private:
 	
 	AiMove getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove move);
 	int evaluation(GameBoard& m_gameboard,AiMove newMove, GameState copy);
-	int evalgroup(GameBoard& m_gameboard, int score, GameState copy);
 	GameState state;
 	int ai = 1;
 	int player = 2;
