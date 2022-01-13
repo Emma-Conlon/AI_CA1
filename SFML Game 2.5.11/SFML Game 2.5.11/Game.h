@@ -38,14 +38,15 @@ private:
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_welcomeMessage; // text used for message on screen
+	sf::Text m_type; // text used for message on screen
 	sf::Texture m_logoTexture; // texture used for sfml logo
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
-	
+	int diff = 0;
 	sf::Font m_font;
 	
 	
-	GameState current = playerTurn;
+	GameState current = Difficulty;
 };
 
 #endif // !GAME_HPP

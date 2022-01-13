@@ -82,6 +82,22 @@ void Game::processEvents()
 		{
 			processKeys(newEvent);
 		}
+		if (current == Difficulty)
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+			{
+				diff = 1;
+				m_type.setString("AI Difficulty:Easy");
+				current = playerTurn;
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+			{
+				diff = 2;
+				m_type.setString("AI Difficulty:Hard");
+				current = playerTurn;
+			}
+		}
+		
 	}
 }
 
@@ -113,7 +129,6 @@ void Game::update(sf::Time t_deltaTime)
 	m_gameboard->update(m_window);
 
 	
-	
 		if (current == playerTurn) {
 			m_welcomeMessage.setString("Players Turn");
 			m_gameboard->m_bored->placement(&m_window, current);
@@ -128,7 +143,7 @@ void Game::update(sf::Time t_deltaTime)
 		{
 			m_welcomeMessage.setString("AI Turn");
 			ai.init(current);
-			ai.preformMove(*m_gameboard);
+			ai.preformMove(*m_gameboard, diff);
 
 
 			
@@ -160,6 +175,7 @@ void Game::render()
 	
 	m_gameboard->m_bored->draw(&m_window);
 	m_window.draw(m_welcomeMessage);
+	m_window.draw(m_type);
 	for (size_t i = 0; i < m_gameboard->m_boardSwitchButtons.size(); i++)
 	{
 		m_window.draw(m_gameboard->m_boardSwitchButtons[i]);
@@ -178,13 +194,22 @@ void Game::setupFontAndText()
 		std::cout << "problem loading arial black font" << std::endl;
 	}
 	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("Players Turn");
+	m_welcomeMessage.setString("PickAiDifficulty");
 	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
-	m_welcomeMessage.setPosition(450.0f, 1450.0f);
+	m_welcomeMessage.setPosition(150.0f, 1450.0f);
 	m_welcomeMessage.setCharacterSize(80U);
 	m_welcomeMessage.setOutlineColor(sf::Color::Red);
 	m_welcomeMessage.setFillColor(sf::Color::Black);
 	m_welcomeMessage.setOutlineThickness(3.0f);
+
+	m_type.setFont(m_ArialBlackfont);
+	m_type.setString(" 1=Easy 2=Hard");
+	m_type.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
+	m_type.setPosition(850.0f, 1450.0f);
+	m_type.setCharacterSize(80U);
+	m_type.setOutlineColor(sf::Color::Green);
+	m_type.setFillColor(sf::Color::Black);
+	m_type.setOutlineThickness(3.0f);
 
 }
 

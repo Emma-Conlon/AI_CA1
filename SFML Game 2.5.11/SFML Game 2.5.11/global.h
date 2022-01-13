@@ -5,7 +5,7 @@ enum  GameState
 	AiTurn,
 	GameEndedDraw,
 	GameEndedWinPlayer,
-	GameEndedWinAi
-
+	GameEndedWinAi,
+	Difficulty
 };
 

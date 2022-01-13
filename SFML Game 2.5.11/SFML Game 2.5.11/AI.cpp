@@ -5,8 +5,9 @@ void AI::init(GameState copy)
 {
     state = copy;
 }
-void AI::preformMove(GameBoard& m_gameboard)
+void AI::preformMove(GameBoard& m_gameboard,int t_maxD)
 {
+    maxDepth = t_maxD;
     AiMove bestMove = getBestMove(m_gameboard, state,0,AiMove());
     m_gameboard.m_boards[bestMove.z]->setPiece(bestMove.x, bestMove.y, sf::Color::Red);
 }
@@ -30,7 +31,7 @@ AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove
     
 
     std::vector<AiMove> moves;
-    if (depth >= 2)
+    if (depth >= maxDepth)
     {
         AiMove newMove;
         newMove.x = t_move.x;
@@ -132,9 +133,10 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
         {
             continue;
         }
-
+     
         if (m_gameboard.m_boards[z1]->getPiece(x1, newMove.y).getFillColor() == sf::Color::Yellow)
         {
+           
             if (copy == playerTurn)
             {
                 score += 2;
@@ -493,6 +495,11 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
                 score += 0;
             }
         }
+       if (maxDepth == 1 && score > 6)
+       {
+           score = -5;
+       }
+       
     //evalgroup(m_gameboard, score, copy);
     if (copy == playerTurn)
     {
