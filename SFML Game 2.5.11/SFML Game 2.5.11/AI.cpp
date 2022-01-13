@@ -8,11 +8,12 @@ void AI::init(GameState copy)
 void AI::preformMove(GameBoard& m_gameboard,int t_maxD)
 {
     maxDepth = t_maxD;
-    AiMove bestMove = getBestMove(m_gameboard, state,0,AiMove());
+    AiMove bestMove = getBestMove(m_gameboard, state,0,AiMove(),-10000,10000);
     m_gameboard.m_boards[bestMove.z]->setPiece(bestMove.x, bestMove.y, sf::Color::Red);
 }
-AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove t_move)
+AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove t_move, int t_alpha, int t_beta)
 {
+    AiMove bestMove;
     int retv = m_gameboard.victoryCheck(copy);
     if (retv == ai)
     {
@@ -28,16 +29,16 @@ AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove
     }
 
 
-    
 
-    std::vector<AiMove> moves;
+
+   
     if (depth >= maxDepth)
     {
         AiMove newMove;
         newMove.x = t_move.x;
         newMove.y = t_move.y;
         newMove.z = t_move.z;
-        newMove.score=evaluation(m_gameboard, newMove, copy);
+        newMove.score = evaluation(m_gameboard, newMove, copy);
 
         return newMove;
     }
@@ -57,56 +58,46 @@ AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove
                     {
 
                         m_gameboard.m_boards[z]->setPiece(x, y, sf::Color::Yellow);
-                        move.score = getBestMove(m_gameboard, GameState::AiTurn, depth+1,move).score;
+                        move.score = getBestMove(m_gameboard, GameState::AiTurn, depth + 1, move, t_alpha, t_beta).score;
+                        if (move.score < t_beta)
+
+                        {
+                            t_beta = move.score;
+                            bestMove = move;
+
+                        }
 
                     }
-                    if(copy ==AiTurn)
+                    if (copy == AiTurn)
                     {
-                        
+
                         m_gameboard.m_boards[z]->setPiece(x, y, sf::Color::Red);
-                        move.score = getBestMove(m_gameboard, GameState::playerTurn, depth+1,move).score;
+                        move.score = getBestMove(m_gameboard, GameState::playerTurn, depth + 1, move, t_alpha, t_beta).score;
+                        if (move.score > t_alpha)
+
+                        {
+                            t_alpha = move.score;
+                            bestMove = move;
+                        }
 
                     }
-                    
-                         
 
-                         moves.push_back(move);
-                         
-                         m_gameboard.m_boards[z]->setPiece(x, y, sf::Color::White);
-                   
+
+
+                    
+
+                    m_gameboard.m_boards[z]->setPiece(x, y, sf::Color::White);
+                    if (t_alpha >= t_beta)
+                    {
+                        return bestMove;
+                    }
                 }
             }
 
         }
 
     }
-
-    int bestMove = 0;
-    if (copy == playerTurn)
-    {
-        int bestScore = -100000;
-        for (size_t i = 0; i < moves.size(); i++)
-        {
-            if (moves[i].score > bestScore)
-            {
-                bestMove = i;
-                bestScore = moves[i].score;
-            }
-        }
-    }
-    else
-    {
-        int bestScore = 100000;
-        for (size_t i = 0; i < moves.size(); i++)
-        {
-            if (moves[i].score < bestScore)
-            {
-                bestMove = i;
-                bestScore = moves[i].score;
-            }
-        }
-    }
-    return moves[bestMove];
+    return bestMove;
 }
 
 /// <summary>

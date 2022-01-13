@@ -92,7 +92,7 @@ void Game::processEvents()
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
 			{
-				diff = 2;
+				diff = 3;
 				m_type.setString("AI Difficulty:Hard");
 				current = playerTurn;
 			}

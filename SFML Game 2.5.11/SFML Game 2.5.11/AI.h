@@ -18,7 +18,7 @@ public:
     void preformMove(GameBoard &m_gameboard,int t_maxD);
 private:
 	
-	AiMove getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove move);
+	AiMove getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove move,  int t_alpha, int t_beta);
 	int evaluation(GameBoard& m_gameboard,AiMove newMove, GameState copy);
 	GameState state;
 	int ai = 1;
