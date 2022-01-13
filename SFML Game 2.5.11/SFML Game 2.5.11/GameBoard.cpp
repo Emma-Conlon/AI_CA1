@@ -51,10 +51,10 @@ void GameBoard::update(sf::RenderWindow &m_window)
 }
 int GameBoard::victoryCheck(GameState& current)
 {
-	std::array<int, 16> pos1;
-	std::array<int, 16> pos2;
-	std::array<int, 16> pos3;
-	std::array<int, 16> pos4;
+	std::array<int, 16> pos1;//bord 1 
+	std::array<int, 16> pos2;//board2
+	std::array<int, 16> pos3;//board 3 
+	std::array<int, 16> pos4;//board 4
 	bool win = false;
 	for (int i = 0; i < 4; i++)
 	{
@@ -70,9 +70,10 @@ int GameBoard::victoryCheck(GameState& current)
 		}
 
 	}
-	for (int j = 0; j < 4; j++)
+	
+	for (int j = 0; j < 4; j++)//row 
 	{
-		for (int k = 0; k < 4; k++)
+		for (int k = 0; k < 4; k++)//col
 		{
 			pos1[k * 4 + j] = 5;
 			if (m_boards[0]->getPiece(j, k).getFillColor() == sf::Color::Yellow)
@@ -216,4 +217,26 @@ int GameBoard::victoryCheck(GameState& current)
 	}
 	
 	return 0;
+}
+
+bool GameBoard::checkStraight()
+{
+	bool straight;
+	std::array<int, 16> pos1;//bord 1 
+	std::array<int, 16> pos2;//board2
+	std::array<int, 16> pos3;//board 3 
+	std::array<int, 16> pos4;//board 4
+
+	for (int i = 0; i < 16; i++)
+	{
+		if (pos1[i] == 1 && pos2[i] == 1 && pos3[i] == 1 && pos4[i] == 1)
+		{
+			straight = false;
+		}
+		if (pos1[i] == 2 && pos2[i] == 2 && pos3[i] == 2 && pos4[i] == 2)
+		{
+			straight = true;
+		}
+	}
+	return  1;
 }

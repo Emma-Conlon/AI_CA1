@@ -14,5 +14,6 @@ public:
 	std::array<sf::Text, 4> m_boardSwitchTexts;
 	sf::RectangleShape* m_currentBoardButton;
 	int victoryCheck(GameState &current);
+	bool checkStraight();
 };
 
