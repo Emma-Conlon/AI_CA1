@@ -8,6 +8,9 @@
 ###  press 1 for Easy 
 ###  2 for Hard
 ## Efficeny(Ben)10%
+## Doxygen(Emma)5%
 ## Left Click to place piece
 ## press 1 for easy,2 for normal and 3 for hard mode on AI at the start
 ## Enjoy
+
+
