@@ -1,5 +1,7 @@
 #pragma once
 #include "GameBoard.h";
+
+///	 AIMoves helps get the minmax
 struct AiMove
 {
 	AiMove() {}

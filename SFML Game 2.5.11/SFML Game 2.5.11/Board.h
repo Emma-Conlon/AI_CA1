@@ -2,9 +2,11 @@
 #define BOARD_H
 
 #include <array>
-//#include "Piece.h"
 #include <SFML/Graphics.hpp>
 #include "global.h"
+/// <summary>
+/// creates the tiles on the board
+/// </summary>
 class Board
 {
 private:
@@ -13,8 +15,8 @@ private:
 
 public:
 	Board(int index);
-	std::array<std::array<sf::CircleShape, 4>, 4> m_pieces;
-	std::array<std::array<sf::RectangleShape, 4>, 4> m_boardTiles;
+	std::array<std::array<sf::CircleShape, 4>, 4> m_pieces;///player and AIs pieces 
+	std::array<std::array<sf::RectangleShape, 4>, 4> m_boardTiles;/// boards tiles 
 
 	void update(sf::Time dt, sf::RenderWindow* window);
 	void placement(sf::RenderWindow* window,GameState &T_state);

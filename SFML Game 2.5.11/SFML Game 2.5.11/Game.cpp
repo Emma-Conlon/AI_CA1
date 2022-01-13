@@ -1,8 +1,5 @@
 /// <summary>
-/// @author Peter Lowe
-/// @date May 2019
-///
-/// you need to change the above lines or lose marks
+///AI Game from Emma and Ben
 /// </summary>
 
 #include "Game.h"
@@ -82,6 +79,9 @@ void Game::processEvents()
 		{
 			processKeys(newEvent);
 		}
+		/// <summary>
+		/// before game starts select a difficulty for the AI
+		/// </summary>
 		if (current == Difficulty)
 		{
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
@@ -91,6 +91,12 @@ void Game::processEvents()
 				current = playerTurn;
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+			{
+				diff = 2;
+				m_type.setString("AI Difficulty:Medium");
+				current = playerTurn;
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
 			{
 				diff = 3;
 				m_type.setString("AI Difficulty:Hard");
@@ -128,7 +134,7 @@ void Game::update(sf::Time t_deltaTime)
 
 	m_gameboard->update(m_window);
 
-	
+	/// checks to see if it is the players turn and can they win
 		if (current == playerTurn) {
 			m_welcomeMessage.setString("Players Turn");
 			m_gameboard->m_bored->placement(&m_window, current);
@@ -138,7 +144,7 @@ void Game::update(sf::Time t_deltaTime)
 
 
 		}
-
+		/// checks to see if it is the AIS turn and what the best possible move is 
 		if (current == AiTurn)
 		{
 			m_welcomeMessage.setString("AI Turn");
@@ -154,11 +160,15 @@ void Game::update(sf::Time t_deltaTime)
 
 		}
 
-	
+	/// <summary>
+	/// ends game if player won
+	/// </summary>
+	/// <param name="t_deltaTime"></param>
 	if (current == GameEndedWinPlayer)
 	{
 		m_welcomeMessage.setString("Player won");
 	}
+	/// ends game if AI won
 	if (current == GameEndedWinAi)
 	{
 		m_welcomeMessage.setString("AI won");
@@ -203,10 +213,10 @@ void Game::setupFontAndText()
 	m_welcomeMessage.setOutlineThickness(3.0f);
 
 	m_type.setFont(m_ArialBlackfont);
-	m_type.setString(" 1=Easy 2=Hard");
+	m_type.setString(" 1=Easy 2=Normal,3=hard");
 	m_type.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
 	m_type.setPosition(850.0f, 1450.0f);
-	m_type.setCharacterSize(80U);
+	m_type.setCharacterSize(60U);
 	m_type.setOutlineColor(sf::Color::Green);
 	m_type.setFillColor(sf::Color::Black);
 	m_type.setOutlineThickness(3.0f);

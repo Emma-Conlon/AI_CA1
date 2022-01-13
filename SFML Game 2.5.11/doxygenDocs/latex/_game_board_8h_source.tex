@@ -1,0 +1,25 @@
+\hypertarget{_game_board_8h_source}{}\doxysection{Game\+Board.\+h}
+\label{_game_board_8h_source}\index{C:/Users/gameuser/Desktop/New folder (17)/AI\_CA1/SFML Game 2.5.11/SFML Game 2.5.11/GameBoard.h@{C:/Users/gameuser/Desktop/New folder (17)/AI\_CA1/SFML Game 2.5.11/SFML Game 2.5.11/GameBoard.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include"{}Board.h"{}}}
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_board}{GameBoard}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{GameBoard}}();}
+\DoxyCodeLine{10     std::array<Board*, 4> m\_boards;}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_board}{Board}}* m\_bored;}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}{update}}(sf::RenderWindow\& m\_window);}
+\DoxyCodeLine{13     \textcolor{keywordtype}{bool} ended = \textcolor{keyword}{false};}
+\DoxyCodeLine{14     sf::Font m\_font;}
+\DoxyCodeLine{15     sf::Color m\_selectedBoardColor\{ 255, 0, 0 \};}
+\DoxyCodeLine{16     std::array<sf::RectangleShape, 4> m\_boardSwitchButtons;}
+\DoxyCodeLine{17     std::array<sf::Text, 4> m\_boardSwitchTexts;}
+\DoxyCodeLine{18     sf::RectangleShape* m\_currentBoardButton;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_board_aac50caf47f4b4aac189823f662ce2d97}{victoryCheck}}(GameState \&current);}
+\DoxyCodeLine{20     }
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+
+\end{DoxyCode}

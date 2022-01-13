@@ -1,5 +1,8 @@
 #pragma once
 #include"Board.h"
+/// <summary>
+/// goes through all the boards 
+/// </summary>
 class GameBoard
 {
 public:
@@ -14,6 +17,6 @@ public:
 	std::array<sf::Text, 4> m_boardSwitchTexts;
 	sf::RectangleShape* m_currentBoardButton;
 	int victoryCheck(GameState &current);
-	bool checkStraight();
+	
 };
 

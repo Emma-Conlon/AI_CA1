@@ -1,0 +1,172 @@
+\hypertarget{class_board}{}\doxysection{Board Class Reference}
+\label{class_board}\index{Board@{Board}}
+
+
+creates the tiles on the board  
+
+
+
+
+{\ttfamily \#include $<$Board.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board_a58edf98349df781abe0eae0f5cc683ab}{Board}} (int index)
+\item 
+void \mbox{\hyperlink{class_board_ab67774e9e0890c485462167c07e4bf45}{update}} (sf\+::\+Time dt, sf\+::\+Render\+Window $\ast$window)
+\begin{DoxyCompactList}\small\item\em boards tiles \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_board_a7cdb6f964e0c79bccdc101308a52d65b}\label{class_board_a7cdb6f964e0c79bccdc101308a52d65b}} 
+void {\bfseries placement} (sf\+::\+Render\+Window $\ast$window, Game\+State \&T\+\_\+state)
+\begin{DoxyCompactList}\small\item\em this allows the player to pick any position on the board when it is their turn with a left click \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_afa4216ac4d31bc3762e62a2697c147e4}{draw}} (sf\+::\+Render\+Window $\ast$window)
+\begin{DoxyCompactList}\small\item\em draws all the boards tiles and pieces \end{DoxyCompactList}\item 
+sf\+::\+Circle\+Shape \mbox{\hyperlink{class_board_a87de3a70f5f1f1e6f396492a6ab69549}{get\+Piece}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em gets the peice of either the \mbox{\hyperlink{class_a_i}{AI}} and the players piece \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a304c613827cde5710f0b0bfc7aaf8ad2}{set\+Piece}} (int x, int y, sf\+::\+Color player)
+\begin{DoxyCompactList}\small\item\em changes the players position on the board with an x and y value \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_a6c41857d579f0dfbc4ba478cec409c71}{victory\+Check\+Player}} ()
+\begin{DoxyCompactList}\small\item\em checks victory for the Player in every possible to move \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_board_ac0bf1a012f4530b413787cd66ff288b3}\label{class_board_ac0bf1a012f4530b413787cd66ff288b3}} 
+int {\bfseries index} ()
+\item 
+bool \mbox{\hyperlink{class_board_a570dacb4e71e48ea253803160f0f5cb9}{victory\+Check\+AI}} ()
+\begin{DoxyCompactList}\small\item\em checks for victory for \mbox{\hyperlink{class_a_i}{AI}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_board_a93f86b949fbc555119882257b73e4ae6}\label{class_board_a93f86b949fbc555119882257b73e4ae6}} 
+std\+::array$<$ std\+::array$<$ sf\+::\+Circle\+Shape, 4 $>$, 4 $>$ {\bfseries m\+\_\+pieces}
+\item 
+\mbox{\Hypertarget{class_board_a9466e3d14ace08cc22d300a1d26d6ede}\label{class_board_a9466e3d14ace08cc22d300a1d26d6ede}} 
+std\+::array$<$ std\+::array$<$ sf\+::\+Rectangle\+Shape, 4 $>$, 4 $>$ {\bfseries m\+\_\+board\+Tiles}
+\begin{DoxyCompactList}\small\item\em player and AIs pieces \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+creates the tiles on the board 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_board_a58edf98349df781abe0eae0f5cc683ab}\label{class_board_a58edf98349df781abe0eae0f5cc683ab}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+creates the boards tiles
+
+white pieces on the board 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_board_afa4216ac4d31bc3762e62a2697c147e4}\label{class_board_afa4216ac4d31bc3762e62a2697c147e4}} 
+\index{Board@{Board}!draw@{draw}}
+\index{draw@{draw}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Board\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+draws all the boards tiles and pieces 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_board_a87de3a70f5f1f1e6f396492a6ab69549}\label{class_board_a87de3a70f5f1f1e6f396492a6ab69549}} 
+\index{Board@{Board}!getPiece@{getPiece}}
+\index{getPiece@{getPiece}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getPiece()}{getPiece()}}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape Board\+::get\+Piece (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+gets the peice of either the \mbox{\hyperlink{class_a_i}{AI}} and the players piece 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_board_a304c613827cde5710f0b0bfc7aaf8ad2}\label{class_board_a304c613827cde5710f0b0bfc7aaf8ad2}} 
+\index{Board@{Board}!setPiece@{setPiece}}
+\index{setPiece@{setPiece}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setPiece()}{setPiece()}}
+{\footnotesize\ttfamily void Board\+::set\+Piece (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{sf\+::\+Color}]{player }\end{DoxyParamCaption})}
+
+
+
+changes the players position on the board with an x and y value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em player} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_board_ab67774e9e0890c485462167c07e4bf45}\label{class_board_ab67774e9e0890c485462167c07e4bf45}} 
+\index{Board@{Board}!update@{update}}
+\index{update@{update}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Board\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{dt,  }\item[{sf\+::\+Render\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+
+
+boards tiles 
+
+not used 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+{\em window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_board_a570dacb4e71e48ea253803160f0f5cb9}\label{class_board_a570dacb4e71e48ea253803160f0f5cb9}} 
+\index{Board@{Board}!victoryCheckAI@{victoryCheckAI}}
+\index{victoryCheckAI@{victoryCheckAI}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{victoryCheckAI()}{victoryCheckAI()}}
+{\footnotesize\ttfamily bool Board\+::victory\+Check\+AI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks for victory for \mbox{\hyperlink{class_a_i}{AI}} 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_board_a6c41857d579f0dfbc4ba478cec409c71}\label{class_board_a6c41857d579f0dfbc4ba478cec409c71}} 
+\index{Board@{Board}!victoryCheckPlayer@{victoryCheckPlayer}}
+\index{victoryCheckPlayer@{victoryCheckPlayer}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{victoryCheckPlayer()}{victoryCheckPlayer()}}
+{\footnotesize\ttfamily bool Board\+::victory\+Check\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks victory for the Player in every possible to move 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+New folder (17)/\+AI\+\_\+\+CA1/\+SFML Game 2.\+5.\+11/\+SFML Game 2.\+5.\+11/Board.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+New folder (17)/\+AI\+\_\+\+CA1/\+SFML Game 2.\+5.\+11/\+SFML Game 2.\+5.\+11/Board.\+cpp\end{DoxyCompactItemize}

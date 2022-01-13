@@ -1,0 +1,25 @@
+\hypertarget{_game_board_8h_source}{}\doxysection{Game\+Board.\+h}
+\label{_game_board_8h_source}\index{SFML Game 2.5.11/GameBoard.h@{SFML Game 2.5.11/GameBoard.h}}
+\mbox{\hyperlink{_game_board_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_board_8h}{Board.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_board}{GameBoard}}}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{GameBoard}}();}
+\DoxyCodeLine{7     std::array<Board*, 4> \mbox{\hyperlink{class_game_board_ae36cceb9d6222df28a90f74a1419e50a}{m\_boards}};}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_board}{Board}}* \mbox{\hyperlink{class_game_board_a4afc413486a9a1a89a1a2eb67e4d2324}{m\_bored}};}
+\DoxyCodeLine{9     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}{update}}(sf::RenderWindow\& m\_window);}
+\DoxyCodeLine{10     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_board_adb0d5dea42b69fa4e5d9c3cd6ed7e801}{ended}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{11     sf::Font \mbox{\hyperlink{class_game_board_aff8b574f92fff86b999e58e2b1296ae3}{m\_font}};}
+\DoxyCodeLine{12     sf::Color \mbox{\hyperlink{class_game_board_ac3aa35e51998559c9efe167f9272303c}{m\_selectedBoardColor}}\{ 255, 0, 0 \};}
+\DoxyCodeLine{13     std::array<sf::RectangleShape, 4> \mbox{\hyperlink{class_game_board_ae47c10e05d7d704f9f98ae18157cce5a}{m\_boardSwitchButtons}};}
+\DoxyCodeLine{14     std::array<sf::Text, 4> \mbox{\hyperlink{class_game_board_a55e23f28264a733cca2f61fc4743bff9}{m\_boardSwitchTexts}};}
+\DoxyCodeLine{15     sf::RectangleShape* \mbox{\hyperlink{class_game_board_ab3512bc8bf06ca237fee7a6dcef88776}{m\_currentBoardButton}};}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_board_aac50caf47f4b4aac189823f662ce2d97}{victoryCheck}}(\mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} \&current);}
+\DoxyCodeLine{17     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_board_a573c42e40f9026b72b6476a2ca801086}{checkStraight}}();}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}

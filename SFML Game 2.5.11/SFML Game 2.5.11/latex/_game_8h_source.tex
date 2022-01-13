@@ -1,0 +1,48 @@
+\hypertarget{_game_8h_source}{}\doxysection{Game.\+h}
+\label{_game_8h_source}\index{SFML Game 2.5.11/Game.h@{SFML Game 2.5.11/Game.h}}
+\mbox{\hyperlink{_game_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef GAME\_HPP}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define GAME\_HPP}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_game_board_8h}{GameBoard.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{global_8h}{global.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_a_i_8h}{AI.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_game}{Game}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}}();}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{\string~Game}}();}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}{run}}();}
+\DoxyCodeLine{26     }
+\DoxyCodeLine{27 \textcolor{keyword}{private}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_a_i}{AI}} ai;}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_game_board}{GameBoard}}* m\_gameboard = \textcolor{keyword}{new} \mbox{\hyperlink{class_game_board}{GameBoard}}();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} processEvents();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} processKeys(sf::Event t\_event);}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} update(sf::Time t\_deltaTime);}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} render();}
+\DoxyCodeLine{34     }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} setupFontAndText();}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} setupSprite();}
+\DoxyCodeLine{37     }
+\DoxyCodeLine{38     sf::RenderWindow m\_window; \textcolor{comment}{// main SFML window}}
+\DoxyCodeLine{39     sf::Font m\_ArialBlackfont; \textcolor{comment}{// font used by message}}
+\DoxyCodeLine{40     sf::Text m\_welcomeMessage; \textcolor{comment}{// text used for message on screen}}
+\DoxyCodeLine{41     sf::Text m\_type; \textcolor{comment}{// text used for message on screen}}
+\DoxyCodeLine{42     sf::Texture m\_logoTexture; \textcolor{comment}{// texture used for sfml logo}}
+\DoxyCodeLine{43     sf::Sprite m\_logoSprite; \textcolor{comment}{// sprite used for sfml logo}}
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} m\_exitGame; \textcolor{comment}{// control exiting game}}
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} diff = 0;}
+\DoxyCodeLine{46     sf::Font m\_font;}
+\DoxyCodeLine{47     }
+\DoxyCodeLine{48     }
+\DoxyCodeLine{49     \mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} current = \mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285ac95782278a6a1fa63854c504f0e4c7ad}{Difficulty}};}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// !GAME\_HPP}}
+\DoxyCodeLine{53 }
+
+\end{DoxyCode}

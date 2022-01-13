@@ -1,5 +1,6 @@
 #include "GameBoard.h"
 
+///creates all the board buttons to switch between boards
 GameBoard::GameBoard()
 {
 	m_font.loadFromFile("ASSETS\\FONTS\\ariblk.ttf");
@@ -9,7 +10,9 @@ GameBoard::GameBoard()
 		board = new Board(boardIndex);
 		++boardIndex;
 	}
-
+	/// <summary>
+	/// creates the boards buttons
+	/// </summary>
 	for (size_t i = 0; i < m_boardSwitchButtons.size(); i++)
 	{
 		m_boardSwitchButtons[i].setFillColor(sf::Color::Black);
@@ -29,6 +32,10 @@ GameBoard::GameBoard()
 	m_currentBoardButton = &m_boardSwitchButtons[0];
 	m_currentBoardButton->setFillColor(m_selectedBoardColor);
 }
+/// <summary>
+/// when a button is selected it switches between the boards
+/// </summary>
+/// <param name="m_window"></param>
 void GameBoard::update(sf::RenderWindow &m_window)
 {
 	
@@ -49,10 +56,15 @@ void GameBoard::update(sf::RenderWindow &m_window)
 	}
 
 }
+/// <summary>
+/// checks all the possible wins that exist
+/// </summary>
+/// <param name="current">current move</param>
+/// <returns></returns>
 int GameBoard::victoryCheck(GameState& current)
 {
-	std::array<int, 16> pos1;//bord 1 
-	std::array<int, 16> pos2;//board2
+	std::array<int, 16> pos1;//board 1 
+	std::array<int, 16> pos2;//board 2
 	std::array<int, 16> pos3;//board 3 
 	std::array<int, 16> pos4;//board 4
 	bool win = false;
@@ -204,12 +216,14 @@ int GameBoard::victoryCheck(GameState& current)
 			current = GameEndedWinAi;
 		}
 	}
+	///when AI wins end game
 	if (current == GameEndedWinAi)
 	{
 		ended = true;
 		return 1;
 
 	}
+	///when Player wins end game
 	if (current == GameEndedWinPlayer)
 	{
 		ended = true;
@@ -219,24 +233,4 @@ int GameBoard::victoryCheck(GameState& current)
 	return 0;
 }
 
-bool GameBoard::checkStraight()
-{
-	bool straight;
-	std::array<int, 16> pos1;//bord 1 
-	std::array<int, 16> pos2;//board2
-	std::array<int, 16> pos3;//board 3 
-	std::array<int, 16> pos4;//board 4
-
-	for (int i = 0; i < 16; i++)
-	{
-		if (pos1[i] == 1 && pos2[i] == 1 && pos3[i] == 1 && pos4[i] == 1)
-		{
-			straight = false;
-		}
-		if (pos1[i] == 2 && pos2[i] == 2 && pos3[i] == 2 && pos4[i] == 2)
-		{
-			straight = true;
-		}
-	}
-	return  1;
-}
+ 

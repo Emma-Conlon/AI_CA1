@@ -1,0 +1,123 @@
+\hypertarget{class_game_board}{}\doxysection{Game\+Board Class Reference}
+\label{class_game_board}\index{GameBoard@{GameBoard}}
+
+
+{\ttfamily \#include $<$Game\+Board.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{Game\+Board}} ()
+\item 
+void \mbox{\hyperlink{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}{update}} (sf\+::\+Render\+Window \&m\+\_\+window)
+\item 
+int \mbox{\hyperlink{class_game_board_aac50caf47f4b4aac189823f662ce2d97}{victory\+Check}} (\mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \&current)
+\item 
+bool \mbox{\hyperlink{class_game_board_a573c42e40f9026b72b6476a2ca801086}{check\+Straight}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ \mbox{\hyperlink{class_board}{Board}} $\ast$, 4 $>$ \mbox{\hyperlink{class_game_board_ae36cceb9d6222df28a90f74a1419e50a}{m\+\_\+boards}}
+\item 
+\mbox{\hyperlink{class_board}{Board}} $\ast$ \mbox{\hyperlink{class_game_board_a4afc413486a9a1a89a1a2eb67e4d2324}{m\+\_\+bored}}
+\item 
+bool \mbox{\hyperlink{class_game_board_adb0d5dea42b69fa4e5d9c3cd6ed7e801}{ended}} = false
+\item 
+sf\+::\+Font \mbox{\hyperlink{class_game_board_aff8b574f92fff86b999e58e2b1296ae3}{m\+\_\+font}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{class_game_board_ac3aa35e51998559c9efe167f9272303c}{m\+\_\+selected\+Board\+Color}} \{ 255, 0, 0 \}
+\item 
+std\+::array$<$ sf\+::\+Rectangle\+Shape, 4 $>$ \mbox{\hyperlink{class_game_board_ae47c10e05d7d704f9f98ae18157cce5a}{m\+\_\+board\+Switch\+Buttons}}
+\item 
+std\+::array$<$ sf\+::\+Text, 4 $>$ \mbox{\hyperlink{class_game_board_a55e23f28264a733cca2f61fc4743bff9}{m\+\_\+board\+Switch\+Texts}}
+\item 
+sf\+::\+Rectangle\+Shape $\ast$ \mbox{\hyperlink{class_game_board_ab3512bc8bf06ca237fee7a6dcef88776}{m\+\_\+current\+Board\+Button}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}\label{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}} 
+\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{GameBoard()}{GameBoard()}}
+{\footnotesize\ttfamily Game\+Board\+::\+Game\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_board_a573c42e40f9026b72b6476a2ca801086}\label{class_game_board_a573c42e40f9026b72b6476a2ca801086}} 
+\index{GameBoard@{GameBoard}!checkStraight@{checkStraight}}
+\index{checkStraight@{checkStraight}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{checkStraight()}{checkStraight()}}
+{\footnotesize\ttfamily bool Game\+Board\+::check\+Straight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}\label{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}} 
+\index{GameBoard@{GameBoard}!update@{update}}
+\index{update@{update}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+Board\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{m\+\_\+window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_board_aac50caf47f4b4aac189823f662ce2d97}\label{class_game_board_aac50caf47f4b4aac189823f662ce2d97}} 
+\index{GameBoard@{GameBoard}!victoryCheck@{victoryCheck}}
+\index{victoryCheck@{victoryCheck}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{victoryCheck()}{victoryCheck()}}
+{\footnotesize\ttfamily int Game\+Board\+::victory\+Check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \&}]{current }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_board_adb0d5dea42b69fa4e5d9c3cd6ed7e801}\label{class_game_board_adb0d5dea42b69fa4e5d9c3cd6ed7e801}} 
+\index{GameBoard@{GameBoard}!ended@{ended}}
+\index{ended@{ended}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{ended}{ended}}
+{\footnotesize\ttfamily bool Game\+Board\+::ended = false}
+
+\mbox{\Hypertarget{class_game_board_ae36cceb9d6222df28a90f74a1419e50a}\label{class_game_board_ae36cceb9d6222df28a90f74a1419e50a}} 
+\index{GameBoard@{GameBoard}!m\_boards@{m\_boards}}
+\index{m\_boards@{m\_boards}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{m\_boards}{m\_boards}}
+{\footnotesize\ttfamily std\+::array$<$\mbox{\hyperlink{class_board}{Board}}$\ast$, 4$>$ Game\+Board\+::m\+\_\+boards}
+
+\mbox{\Hypertarget{class_game_board_ae47c10e05d7d704f9f98ae18157cce5a}\label{class_game_board_ae47c10e05d7d704f9f98ae18157cce5a}} 
+\index{GameBoard@{GameBoard}!m\_boardSwitchButtons@{m\_boardSwitchButtons}}
+\index{m\_boardSwitchButtons@{m\_boardSwitchButtons}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{m\_boardSwitchButtons}{m\_boardSwitchButtons}}
+{\footnotesize\ttfamily std\+::array$<$sf\+::\+Rectangle\+Shape, 4$>$ Game\+Board\+::m\+\_\+board\+Switch\+Buttons}
+
+\mbox{\Hypertarget{class_game_board_a55e23f28264a733cca2f61fc4743bff9}\label{class_game_board_a55e23f28264a733cca2f61fc4743bff9}} 
+\index{GameBoard@{GameBoard}!m\_boardSwitchTexts@{m\_boardSwitchTexts}}
+\index{m\_boardSwitchTexts@{m\_boardSwitchTexts}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{m\_boardSwitchTexts}{m\_boardSwitchTexts}}
+{\footnotesize\ttfamily std\+::array$<$sf\+::\+Text, 4$>$ Game\+Board\+::m\+\_\+board\+Switch\+Texts}
+
+\mbox{\Hypertarget{class_game_board_a4afc413486a9a1a89a1a2eb67e4d2324}\label{class_game_board_a4afc413486a9a1a89a1a2eb67e4d2324}} 
+\index{GameBoard@{GameBoard}!m\_bored@{m\_bored}}
+\index{m\_bored@{m\_bored}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{m\_bored}{m\_bored}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_board}{Board}}$\ast$ Game\+Board\+::m\+\_\+bored}
+
+\mbox{\Hypertarget{class_game_board_ab3512bc8bf06ca237fee7a6dcef88776}\label{class_game_board_ab3512bc8bf06ca237fee7a6dcef88776}} 
+\index{GameBoard@{GameBoard}!m\_currentBoardButton@{m\_currentBoardButton}}
+\index{m\_currentBoardButton@{m\_currentBoardButton}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{m\_currentBoardButton}{m\_currentBoardButton}}
+{\footnotesize\ttfamily sf\+::\+Rectangle\+Shape$\ast$ Game\+Board\+::m\+\_\+current\+Board\+Button}
+
+\mbox{\Hypertarget{class_game_board_aff8b574f92fff86b999e58e2b1296ae3}\label{class_game_board_aff8b574f92fff86b999e58e2b1296ae3}} 
+\index{GameBoard@{GameBoard}!m\_font@{m\_font}}
+\index{m\_font@{m\_font}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{m\_font}{m\_font}}
+{\footnotesize\ttfamily sf\+::\+Font Game\+Board\+::m\+\_\+font}
+
+\mbox{\Hypertarget{class_game_board_ac3aa35e51998559c9efe167f9272303c}\label{class_game_board_ac3aa35e51998559c9efe167f9272303c}} 
+\index{GameBoard@{GameBoard}!m\_selectedBoardColor@{m\_selectedBoardColor}}
+\index{m\_selectedBoardColor@{m\_selectedBoardColor}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{m\_selectedBoardColor}{m\_selectedBoardColor}}
+{\footnotesize\ttfamily sf\+::\+Color Game\+Board\+::m\+\_\+selected\+Board\+Color \{ 255, 0, 0 \}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+SFML Game 2.\+5.\+11/\mbox{\hyperlink{_game_board_8h}{Game\+Board.\+h}}\item 
+SFML Game 2.\+5.\+11/\mbox{\hyperlink{_game_board_8cpp}{Game\+Board.\+cpp}}\end{DoxyCompactItemize}

@@ -1,6 +1,5 @@
 /// <summary>
-/// author Pete Lowe May 2019
-/// you need to change the above line or lose marks
+///AI Game from Emma and Ben
 /// </summary>
 #ifndef GAME_HPP
 #define GAME_HPP

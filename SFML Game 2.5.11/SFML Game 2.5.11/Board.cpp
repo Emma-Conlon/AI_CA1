@@ -4,7 +4,7 @@
 Board::Board(int index)
 {
 	m_index = index;
-
+	///creates the boards tiles 
 	for (size_t i = 0; i < 4; i++)
 	{
 		for (size_t j = 0; j < 4; j++)
@@ -14,6 +14,10 @@ Board::Board(int index)
 			m_boardTiles.at(i).at(j).setOutlineThickness(1.0f);
 			m_boardTiles.at(i).at(j).setOutlineColor(sf::Color::Black);
 			m_boardTiles.at(i).at(j).setPosition((m_tileWidth * i), (m_tileWidth * j));
+			/// <summary>
+			///white pieces on the board
+			/// </summary>
+			/// <param name="index"></param>
 			m_pieces.at(i).at(j).setRadius(m_tileWidth/2);
 			m_pieces.at(i).at(j).setFillColor(sf::Color::White);
 			m_pieces.at(i).at(j).setOutlineThickness(1.0f);
@@ -25,9 +29,14 @@ Board::Board(int index)
 
 void Board::update(sf::Time dt, sf::RenderWindow* window)
 {
-
+	/// <summary>
+	/// not used 
+	/// </summary>
+	/// <param name="dt"></param>
+	/// <param name="window"></param>
 }
-//
+
+/// this allows the player to pick any position on the board when it is their turn  with a left click
 void Board::placement(sf::RenderWindow* window, GameState& T_state)
 {
 
@@ -54,7 +63,10 @@ void Board::placement(sf::RenderWindow* window, GameState& T_state)
 	
 
 }
-
+/// <summary>
+/// draws all the boards tiles and pieces
+/// </summary>
+/// <param name="window"></param>
 void Board::draw(sf::RenderWindow* window)
 {
 	for (int  i = 0; i < 4; i++)
@@ -66,17 +78,32 @@ void Board::draw(sf::RenderWindow* window)
 		}
 	}
 }
-
+/// <summary>
+/// gets the peice of either the AI and the players piece
+/// </summary>
+/// <param name="x"></param>
+/// <param name="y"></param>
+/// <returns></returns>
 sf::CircleShape Board::getPiece(int x , int y)
 {
 	return m_pieces.at(x).at(y);
 }
 
+/// <summary>
+/// changes the players position on the board with an x and y value 
+/// </summary>
+/// <param name="x"></param>
+/// <param name="y"></param>
+/// <param name="player"></param>
 void Board::setPiece(int x, int y, sf::Color player)
 {
 	m_pieces.at(x).at(y).setFillColor(player);
 }
 
+/// <summary>
+/// checks victory for the Player in every possible to move
+/// </summary>
+/// <returns></returns>
 bool Board::victoryCheckPlayer()
 {
 	bool win = false;
@@ -165,6 +192,10 @@ bool Board::victoryCheckPlayer()
 	return win;
 }
 
+/// <summary>
+/// checks for victory for AI 
+/// </summary>
+/// <returns></returns>
 bool Board::victoryCheckAI()
 {
 	std::array<int, 16> pos;

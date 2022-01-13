@@ -1,0 +1,115 @@
+\hypertarget{class_board}{}\doxysection{Board Class Reference}
+\label{class_board}\index{Board@{Board}}
+
+
+{\ttfamily \#include $<$Board.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board_a58edf98349df781abe0eae0f5cc683ab}{Board}} (int \mbox{\hyperlink{class_board_ac0bf1a012f4530b413787cd66ff288b3}{index}})
+\item 
+void \mbox{\hyperlink{class_board_ab67774e9e0890c485462167c07e4bf45}{update}} (sf\+::\+Time dt, sf\+::\+Render\+Window $\ast$window)
+\item 
+void \mbox{\hyperlink{class_board_a7cdb6f964e0c79bccdc101308a52d65b}{placement}} (sf\+::\+Render\+Window $\ast$window, \mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \&T\+\_\+state)
+\item 
+void \mbox{\hyperlink{class_board_afa4216ac4d31bc3762e62a2697c147e4}{draw}} (sf\+::\+Render\+Window $\ast$window)
+\item 
+sf\+::\+Circle\+Shape \mbox{\hyperlink{class_board_a87de3a70f5f1f1e6f396492a6ab69549}{get\+Piece}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_board_a304c613827cde5710f0b0bfc7aaf8ad2}{set\+Piece}} (int x, int y, sf\+::\+Color player)
+\item 
+bool \mbox{\hyperlink{class_board_a6c41857d579f0dfbc4ba478cec409c71}{victory\+Check\+Player}} ()
+\item 
+int \mbox{\hyperlink{class_board_ac0bf1a012f4530b413787cd66ff288b3}{index}} ()
+\item 
+bool \mbox{\hyperlink{class_board_a570dacb4e71e48ea253803160f0f5cb9}{victory\+Check\+AI}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ std\+::array$<$ sf\+::\+Circle\+Shape, 4 $>$, 4 $>$ \mbox{\hyperlink{class_board_a93f86b949fbc555119882257b73e4ae6}{m\+\_\+pieces}}
+\item 
+std\+::array$<$ std\+::array$<$ sf\+::\+Rectangle\+Shape, 4 $>$, 4 $>$ \mbox{\hyperlink{class_board_a9466e3d14ace08cc22d300a1d26d6ede}{m\+\_\+board\+Tiles}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_board_a58edf98349df781abe0eae0f5cc683ab}\label{class_board_a58edf98349df781abe0eae0f5cc683ab}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_board_afa4216ac4d31bc3762e62a2697c147e4}\label{class_board_afa4216ac4d31bc3762e62a2697c147e4}} 
+\index{Board@{Board}!draw@{draw}}
+\index{draw@{draw}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Board\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_board_a87de3a70f5f1f1e6f396492a6ab69549}\label{class_board_a87de3a70f5f1f1e6f396492a6ab69549}} 
+\index{Board@{Board}!getPiece@{getPiece}}
+\index{getPiece@{getPiece}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getPiece()}{getPiece()}}
+{\footnotesize\ttfamily sf\+::\+Circle\+Shape Board\+::get\+Piece (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_board_ac0bf1a012f4530b413787cd66ff288b3}\label{class_board_ac0bf1a012f4530b413787cd66ff288b3}} 
+\index{Board@{Board}!index@{index}}
+\index{index@{index}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily int Board\+::index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_board_a7cdb6f964e0c79bccdc101308a52d65b}\label{class_board_a7cdb6f964e0c79bccdc101308a52d65b}} 
+\index{Board@{Board}!placement@{placement}}
+\index{placement@{placement}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{placement()}{placement()}}
+{\footnotesize\ttfamily void Board\+::placement (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window,  }\item[{\mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \&}]{T\+\_\+state }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_board_a304c613827cde5710f0b0bfc7aaf8ad2}\label{class_board_a304c613827cde5710f0b0bfc7aaf8ad2}} 
+\index{Board@{Board}!setPiece@{setPiece}}
+\index{setPiece@{setPiece}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setPiece()}{setPiece()}}
+{\footnotesize\ttfamily void Board\+::set\+Piece (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{sf\+::\+Color}]{player }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_board_ab67774e9e0890c485462167c07e4bf45}\label{class_board_ab67774e9e0890c485462167c07e4bf45}} 
+\index{Board@{Board}!update@{update}}
+\index{update@{update}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Board\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{dt,  }\item[{sf\+::\+Render\+Window $\ast$}]{window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_board_a570dacb4e71e48ea253803160f0f5cb9}\label{class_board_a570dacb4e71e48ea253803160f0f5cb9}} 
+\index{Board@{Board}!victoryCheckAI@{victoryCheckAI}}
+\index{victoryCheckAI@{victoryCheckAI}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{victoryCheckAI()}{victoryCheckAI()}}
+{\footnotesize\ttfamily bool Board\+::victory\+Check\+AI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_board_a6c41857d579f0dfbc4ba478cec409c71}\label{class_board_a6c41857d579f0dfbc4ba478cec409c71}} 
+\index{Board@{Board}!victoryCheckPlayer@{victoryCheckPlayer}}
+\index{victoryCheckPlayer@{victoryCheckPlayer}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{victoryCheckPlayer()}{victoryCheckPlayer()}}
+{\footnotesize\ttfamily bool Board\+::victory\+Check\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_board_a9466e3d14ace08cc22d300a1d26d6ede}\label{class_board_a9466e3d14ace08cc22d300a1d26d6ede}} 
+\index{Board@{Board}!m\_boardTiles@{m\_boardTiles}}
+\index{m\_boardTiles@{m\_boardTiles}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{m\_boardTiles}{m\_boardTiles}}
+{\footnotesize\ttfamily std\+::array$<$std\+::array$<$sf\+::\+Rectangle\+Shape, 4$>$, 4$>$ Board\+::m\+\_\+board\+Tiles}
+
+\mbox{\Hypertarget{class_board_a93f86b949fbc555119882257b73e4ae6}\label{class_board_a93f86b949fbc555119882257b73e4ae6}} 
+\index{Board@{Board}!m\_pieces@{m\_pieces}}
+\index{m\_pieces@{m\_pieces}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{m\_pieces}{m\_pieces}}
+{\footnotesize\ttfamily std\+::array$<$std\+::array$<$sf\+::\+Circle\+Shape, 4$>$, 4$>$ Board\+::m\+\_\+pieces}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+SFML Game 2.\+5.\+11/\mbox{\hyperlink{_board_8h}{Board.\+h}}\item 
+SFML Game 2.\+5.\+11/\mbox{\hyperlink{_board_8cpp}{Board.\+cpp}}\end{DoxyCompactItemize}

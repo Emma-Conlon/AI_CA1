@@ -1,0 +1,37 @@
+\hypertarget{_a_i_8h_source}{}\doxysection{AI.\+h}
+\label{_a_i_8h_source}\index{C:/Users/gameuser/Desktop/New folder (17)/AI\_CA1/SFML Game 2.5.11/SFML Game 2.5.11/AI.h@{C:/Users/gameuser/Desktop/New folder (17)/AI\_CA1/SFML Game 2.5.11/SFML Game 2.5.11/AI.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}GameBoard.h"{}};}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{5 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_ai_move}{AiMove}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \mbox{\hyperlink{struct_ai_move}{AiMove}}() \{\}}
+\DoxyCodeLine{8     \mbox{\hyperlink{struct_ai_move}{AiMove}}(\textcolor{keywordtype}{int} Score) : score(Score) \{\}}
+\DoxyCodeLine{9     \textcolor{keywordtype}{int} x;}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} y;}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} z;}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} score;}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_a_i}{AI}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} init(GameState copy);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} preformMove(\mbox{\hyperlink{class_game_board}{GameBoard}} \&m\_gameboard,\textcolor{keywordtype}{int} t\_maxD);}
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{23     \mbox{\hyperlink{struct_ai_move}{AiMove}} getBestMove(\mbox{\hyperlink{class_game_board}{GameBoard}}\& m\_gameboard, GameState copy, \textcolor{keywordtype}{int} depth, \mbox{\hyperlink{struct_ai_move}{AiMove}} move,  \textcolor{keywordtype}{int} t\_alpha, \textcolor{keywordtype}{int} t\_beta);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} evaluation(\mbox{\hyperlink{class_game_board}{GameBoard}}\& m\_gameboard,\mbox{\hyperlink{struct_ai_move}{AiMove}} newMove, GameState copy);}
+\DoxyCodeLine{25     GameState state;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} ai = 1;}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} player = 2;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} maxDepth = 1;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} easy = -\/10;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} hard = 0;}
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+
+\end{DoxyCode}

@@ -1,0 +1,37 @@
+\hypertarget{_board_8h_source}{}\doxysection{Board.\+h}
+\label{_board_8h_source}\index{SFML Game 2.5.11/Board.h@{SFML Game 2.5.11/Board.h}}
+\mbox{\hyperlink{_board_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BOARD\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BOARD\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{5 \textcolor{comment}{//\#include "{}Piece.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{global_8h}{global.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_board}{Board}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{float} m\_tileWidth\{ 350.0f \};}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} m\_index;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_board_a58edf98349df781abe0eae0f5cc683ab}{Board}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_board_ac0bf1a012f4530b413787cd66ff288b3}{index}});}
+\DoxyCodeLine{16     std::array<std::array<sf::CircleShape, 4>, 4> \mbox{\hyperlink{class_board_a93f86b949fbc555119882257b73e4ae6}{m\_pieces}};}
+\DoxyCodeLine{17     std::array<std::array<sf::RectangleShape, 4>, 4> \mbox{\hyperlink{class_board_a9466e3d14ace08cc22d300a1d26d6ede}{m\_boardTiles}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_ab67774e9e0890c485462167c07e4bf45}{update}}(sf::Time dt, sf::RenderWindow* window);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_a7cdb6f964e0c79bccdc101308a52d65b}{placement}}(sf::RenderWindow* window,\mbox{\hyperlink{global_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} \&T\_state);}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_afa4216ac4d31bc3762e62a2697c147e4}{draw}}(sf::RenderWindow* window);}
+\DoxyCodeLine{22     sf::CircleShape \mbox{\hyperlink{class_board_a87de3a70f5f1f1e6f396492a6ab69549}{getPiece}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_a304c613827cde5710f0b0bfc7aaf8ad2}{setPiece}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, sf::Color player);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_board_a6c41857d579f0dfbc4ba478cec409c71}{victoryCheckPlayer}}();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_board_ac0bf1a012f4530b413787cd66ff288b3}{index}}() \{ \textcolor{keywordflow}{return} m\_index; \}}
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_board_a570dacb4e71e48ea253803160f0f5cb9}{victoryCheckAI}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// !BOARD\_H}}
+
+\end{DoxyCode}

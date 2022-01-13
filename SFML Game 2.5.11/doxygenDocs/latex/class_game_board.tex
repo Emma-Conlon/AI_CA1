@@ -1,0 +1,107 @@
+\hypertarget{class_game_board}{}\doxysection{Game\+Board Class Reference}
+\label{class_game_board}\index{GameBoard@{GameBoard}}
+
+
+goes through all the boards  
+
+
+
+
+{\ttfamily \#include $<$Game\+Board.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{Game\+Board}} ()
+\begin{DoxyCompactList}\small\item\em creates all the board buttons to switch between boards \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}{update}} (sf\+::\+Render\+Window \&m\+\_\+window)
+\begin{DoxyCompactList}\small\item\em when a button is selected it switches between the boards \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_game_board_aac50caf47f4b4aac189823f662ce2d97}{victory\+Check}} (Game\+State \&current)
+\begin{DoxyCompactList}\small\item\em checks all the possible wins that exist \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_board_ae36cceb9d6222df28a90f74a1419e50a}\label{class_game_board_ae36cceb9d6222df28a90f74a1419e50a}} 
+std\+::array$<$ \mbox{\hyperlink{class_board}{Board}} $\ast$, 4 $>$ {\bfseries m\+\_\+boards}
+\item 
+\mbox{\Hypertarget{class_game_board_a4afc413486a9a1a89a1a2eb67e4d2324}\label{class_game_board_a4afc413486a9a1a89a1a2eb67e4d2324}} 
+\mbox{\hyperlink{class_board}{Board}} $\ast$ {\bfseries m\+\_\+bored}
+\item 
+\mbox{\Hypertarget{class_game_board_adb0d5dea42b69fa4e5d9c3cd6ed7e801}\label{class_game_board_adb0d5dea42b69fa4e5d9c3cd6ed7e801}} 
+bool {\bfseries ended} = false
+\item 
+\mbox{\Hypertarget{class_game_board_aff8b574f92fff86b999e58e2b1296ae3}\label{class_game_board_aff8b574f92fff86b999e58e2b1296ae3}} 
+sf\+::\+Font {\bfseries m\+\_\+font}
+\item 
+\mbox{\Hypertarget{class_game_board_ac3aa35e51998559c9efe167f9272303c}\label{class_game_board_ac3aa35e51998559c9efe167f9272303c}} 
+sf\+::\+Color {\bfseries m\+\_\+selected\+Board\+Color} \{ 255, 0, 0 \}
+\item 
+\mbox{\Hypertarget{class_game_board_ae47c10e05d7d704f9f98ae18157cce5a}\label{class_game_board_ae47c10e05d7d704f9f98ae18157cce5a}} 
+std\+::array$<$ sf\+::\+Rectangle\+Shape, 4 $>$ {\bfseries m\+\_\+board\+Switch\+Buttons}
+\item 
+\mbox{\Hypertarget{class_game_board_a55e23f28264a733cca2f61fc4743bff9}\label{class_game_board_a55e23f28264a733cca2f61fc4743bff9}} 
+std\+::array$<$ sf\+::\+Text, 4 $>$ {\bfseries m\+\_\+board\+Switch\+Texts}
+\item 
+\mbox{\Hypertarget{class_game_board_ab3512bc8bf06ca237fee7a6dcef88776}\label{class_game_board_ab3512bc8bf06ca237fee7a6dcef88776}} 
+sf\+::\+Rectangle\+Shape $\ast$ {\bfseries m\+\_\+current\+Board\+Button}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+goes through all the boards 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}\label{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}} 
+\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{GameBoard()}{GameBoard()}}
+{\footnotesize\ttfamily Game\+Board\+::\+Game\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+creates all the board buttons to switch between boards 
+
+creates the boards buttons 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}\label{class_game_board_a57942aacaf0fc1ab74604c0e648e4a73}} 
+\index{GameBoard@{GameBoard}!update@{update}}
+\index{update@{update}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+Board\+::update (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{m\+\_\+window }\end{DoxyParamCaption})}
+
+
+
+when a button is selected it switches between the boards 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+window} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_board_aac50caf47f4b4aac189823f662ce2d97}\label{class_game_board_aac50caf47f4b4aac189823f662ce2d97}} 
+\index{GameBoard@{GameBoard}!victoryCheck@{victoryCheck}}
+\index{victoryCheck@{victoryCheck}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{victoryCheck()}{victoryCheck()}}
+{\footnotesize\ttfamily int Game\+Board\+::victory\+Check (\begin{DoxyParamCaption}\item[{Game\+State \&}]{current }\end{DoxyParamCaption})}
+
+
+
+checks all the possible wins that exist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & current move\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+when \mbox{\hyperlink{class_a_i}{AI}} wins end game
+
+when Player wins end game
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/gameuser/\+Desktop/\+New folder (17)/\+AI\+\_\+\+CA1/\+SFML Game 2.\+5.\+11/\+SFML Game 2.\+5.\+11/Game\+Board.\+h\item 
+C\+:/\+Users/gameuser/\+Desktop/\+New folder (17)/\+AI\+\_\+\+CA1/\+SFML Game 2.\+5.\+11/\+SFML Game 2.\+5.\+11/Game\+Board.\+cpp\end{DoxyCompactItemize}

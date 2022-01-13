@@ -1,5 +1,4 @@
 #include "AI.h"
-
 #include <vector>
 void AI::init(GameState copy)
 {
@@ -11,6 +10,17 @@ void AI::preformMove(GameBoard& m_gameboard,int t_maxD)
     AiMove bestMove = getBestMove(m_gameboard, state,0,AiMove(),-10000,10000);
     m_gameboard.m_boards[bestMove.z]->setPiece(bestMove.x, bestMove.y, sf::Color::Red);
 }
+
+/// <summary>
+/// this is the minmax for the ai it gets the most opitmal move based on the evaluation
+/// </summary>
+/// <param name="m_gameboard">all the boards</param>
+/// <param name="copy">checks if player turn or ai turn</param>
+/// <param name="depth">depth is how far AI looks ahead </param>
+/// <param name="t_move">current move passed in recursivly</param>
+/// <param name="t_alpha">max</param>
+/// <param name="t_beta">min</param>
+/// <returns></returns>
 AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove t_move, int t_alpha, int t_beta)
 {
     AiMove bestMove;
@@ -101,7 +111,7 @@ AiMove AI::getBestMove(GameBoard& m_gameboard, GameState copy, int depth, AiMove
 }
 
 /// <summary>
-/// evaluates 
+/// evaluates the current move 
 /// </summary>
 /// <param name="m_gameboard">board place</param>
 /// <param name="newMove"></param>
@@ -113,19 +123,19 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
     int score = 0;
     
     m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, newMove.y);
-    if (newMove.x == newMove.y &&( newMove.x == 0 || newMove.x == 3))//all corners of every board
+    if (newMove.x == newMove.y &&( newMove.x == 0 || newMove.x == 3))///all corners of every board
     {
         score +=6;
     }
-    for (int x1 = 0,  z1 = 0; x1 < 4; x1++, z1++)//layers + horizontal
+    for (int x1 = 0,  z1 = 0; x1 < 4; x1++, z1++)///horizontal on all layers 
     {
        
         if (newMove.x == x1)
         {
-            continue;
+            continue;///if current piece then it skips 
         }
      
-        if (m_gameboard.m_boards[z1]->getPiece(x1, newMove.y).getFillColor() == sf::Color::Yellow)
+        if (m_gameboard.m_boards[z1]->getPiece(x1, newMove.y).getFillColor() == sf::Color::Yellow)//if beside a yellow piece
         {
            
             if (copy == playerTurn)
@@ -138,8 +148,9 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
             }
           
         }
-        if (m_gameboard.m_boards[z1]->getPiece(x1, newMove.y).getFillColor() == sf::Color::Red)
+        if (m_gameboard.m_boards[z1]->getPiece(x1, newMove.y).getFillColor() == sf::Color::Red)//if beside a red piece
         {
+            ///checks whos turn it is and gives score based on the movement 
             if (copy == playerTurn)
             {
                 score -= 2;
@@ -151,7 +162,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
         
         }
     }
-    for (int x2 = 3,z2 = 3; x2 >= 0; x2--,z2--)//layers - horizontal
+    for (int x2 = 3,z2 = 3; x2 >= 0; x2--,z2--)///layers - horizontal throughout the  boards
     {
         if (newMove.x == x2)
         {
@@ -182,7 +193,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
         }
     }
         
-        for (int x3 = 0; x3 < 4; x3++)//horizontal
+        for (int x3 = 0; x3 < 4; x3++)///horizontal on 1 board
         {
             if (newMove.x == x3)
             {
@@ -215,7 +226,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
         }
 
 
-        for (int y4 = 0,z4=0; y4 < 4; y4++,z4++)//layers vertical
+        for (int y4 = 0,z4=0; y4 < 4; y4++,z4++)///layers vertical on all boards up 
         {
             if (newMove.y == y4)
             {
@@ -247,7 +258,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
             }
         }
 
-        for (int y5 = 3, z5 = 3; y5 >= 0; y5--,z5--)//layers vertical
+        for (int y5 = 3, z5 = 3; y5 >= 0; y5--,z5--)///layers vertical on all boards down
         {
             if (newMove.y == y5)
             {
@@ -279,7 +290,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
             }
         }
 
-        for (int y6 = 0; y6 < 4; y6++)//vertical normal
+        for (int y6 = 0; y6 < 4; y6++)///vertical 1 board
         {
             if (newMove.y== y6)
             {
@@ -310,7 +321,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
             }
         }
 
-        for (int z6 = 0; z6 < 4; z6++)//layers
+        for (int z6 = 0; z6 < 4; z6++)///layers 
         {
             if (newMove.z == z6)
             {
@@ -342,7 +353,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
             }
         }
 
-         //Layer diagonals 
+         ///Layer diagonals up
         for (int x7 = 0, y7 = 0,z7=0; x7 < 4; x7++,y7++,z7++)
         {
             if (newMove.x == x7)
@@ -375,6 +386,8 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
             }
           
         }
+    
+        /// diagonals layers down
         for (int x8 = 3,y8 = 3, z8=3; x8 >= 0; x8--,y8--,z8--)
         {
             if (newMove.x == x8)
@@ -473,7 +486,7 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
           
 
         }
-
+        ///checks to see if the peice is white so no score
         if (m_gameboard.m_boards[newMove.z]->getPiece(newMove.x, newMove.y).getFillColor() == sf::Color::White)
         {
 
@@ -486,12 +499,12 @@ int AI::evaluation(GameBoard& m_gameboard, AiMove newMove, GameState copy)
                 score += 0;
             }
         }
-       if (maxDepth == 1 && score > 6)
+       if (maxDepth == 1 && score > 6)///changes the score to make it easy for player
        {
            score = -5;
        }
        
-    //evalgroup(m_gameboard, score, copy);
+       ///players score turned to negitvtive
     if (copy == playerTurn)
     {
         score = -score;
