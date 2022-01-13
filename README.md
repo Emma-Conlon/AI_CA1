@@ -5,5 +5,5 @@
 ## general algorhythm(Ben)15%
 ## evaluation function(Emma)15%
 ## difficulty Level(Emma)10%
-#  press 1 for Easy 
-#  2 for Hard
+###  press 1 for Easy 
+###  2 for Hard
